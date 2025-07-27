@@ -40,32 +40,50 @@ export default function Hangman() {
     const isWon = word && word.split('').every((l) => guessedLetters.includes(l))
 
     return (
-        <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>
-            <h2>Създай дума</h2>
-            <form onSubmit={handleWordSubmit}>
-                <input type="text" name="newWord" ref={inputRef} placeholder="Въведи дума" />
-                <button>Запази</button>
-            </form>
+        <>
 
-            {word && (
-                <>
-                    <h1 style={{ letterSpacing: '0.5rem' }}>{getDisplayWord()}</h1>
+            <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>
+                <h2>Създай дума</h2>
+                <form onSubmit={handleWordSubmit}>
+                    <input type="text" name="newWord" ref={inputRef} placeholder="Въведи дума" />
+                    <button>Запази</button>
+                </form>
 
-                    {isWon ? (
-                        <h2 style={{ color: 'green' }}>Поздравления! Позна думата!</h2>
-                    ) : (
-                        <form onSubmit={handleGuess}>
-                            <input type="text" maxLength="1" ref={guessRef} placeholder="Буква" />
-                            <button>Познай</button>
-                        </form>
-                    )}
+                {word && (
+                    <>
+                        <h1 style={{ letterSpacing: '0.5rem' }}>{getDisplayWord()}</h1>
 
-                    <p>Предположени букви: {guessedLetters.join(', ') || 'няма'}</p>
-                    {guestLenght < 6 ?
-                        (<h3>Грешни опити :  {guestLenght}</h3>) : (<h2 style={{ color: 'red' }}>Съжaлявам , но загуби!Опитай пак</h2>
+                        {isWon ? (
+                            <h2 style={{ color: 'green' }}>Поздравления! Позна думата!</h2>
+                        ) : (
+                            <form onSubmit={handleGuess}>
+                                <input type="text" maxLength="1" ref={guessRef} placeholder="Буква" />
+                                <button>Познай</button>
+                            </form>
                         )}
-                </>
-            )}
-        </div>
+
+                        <p>Предположени букви: {guessedLetters.join(', ') || 'няма'}</p>
+                        {guestLenght > 6 ?
+                           (<h2 style={{ color: 'red' }}>Съжaлявам , но загуби!Опитай пак</h2>
+                            ): ''}
+                    </>
+                )}
+            </div>
+            <div class="hangman">
+                <div class="gallows">
+                    <div class="pole"></div>
+                    <div class="beam"></div>
+                    {guestLenght > 0 &&  <div class="rope"></div>}
+                </div>
+                <div class="man">
+                    {guestLenght > 1 && < div class="head"></div>}
+                    {guestLenght > 2 && <div class="body"></div>}
+                    {guestLenght > 3 && <div class="arm left"></div>}
+                    {guestLenght > 4 && <div class="arm right"></div>}
+                    {guestLenght > 5 && <div class="leg left"></div>}
+                    {guestLenght > 6 && <div class="leg right"></div>}
+                </div>
+            </div >
+        </>
     )
 }

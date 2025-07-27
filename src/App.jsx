@@ -1,11 +1,10 @@
 import './App.css'
 import Hangman from './hangman';
 
-
 function App() {
 
   return (
-    <div>
+    <div className='board'>
       <Hangman />
     </div>
   )
