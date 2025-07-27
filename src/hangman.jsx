@@ -24,7 +24,7 @@ export default function Hangman() {
         if (guess && !guessedLetters.includes(guess)) {
             setGuessedLetters((prev) => [...prev, guess])
         }
-        if (!word.includes(guess)) {
+        if (!word.includes(guess) && !wrongLetters.includes(guess)) {
             setWrongLetters((prev) => [...prev, guess])
         }
         guessRef.current.value = ''
@@ -64,8 +64,8 @@ export default function Hangman() {
 
                         <p>Предположени букви: {guessedLetters.join(', ') || 'няма'}</p>
                         {guestLenght > 6 ?
-                           (<h2 style={{ color: 'red' }}>Съжaлявам , но загуби!Опитай пак</h2>
-                            ): ''}
+                            (<h2 style={{ color: 'red' }}>Съжaлявам , но загуби!Опитай пак</h2>
+                            ) : ''}
                     </>
                 )}
             </div>
@@ -73,7 +73,7 @@ export default function Hangman() {
                 <div class="gallows">
                     <div class="pole"></div>
                     <div class="beam"></div>
-                    {guestLenght > 0 &&  <div class="rope"></div>}
+                    {guestLenght > 0 && <div class="rope"></div>}
                 </div>
                 <div class="man">
                     {guestLenght > 1 && < div class="head"></div>}
