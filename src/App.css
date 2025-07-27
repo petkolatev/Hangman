@@ -10,7 +10,7 @@ form input {
   min-width: 100px;
 }
 
-.board{
+.board {
   display: flex;
   gap: 3em;
 }
@@ -22,7 +22,7 @@ form input {
 }
 
 .gallows .pole {
-  height: 250px;
+  height: 450px;
   width: 10px;
   background: #979494;
   position: absolute;
@@ -32,7 +32,7 @@ form input {
 
 .gallows .beam {
   height: 10px;
-  width: 100px;
+  width: 200px;
   background: #979494;
   position: absolute;
   top: 0;
@@ -40,67 +40,67 @@ form input {
 }
 
 .gallows .rope {
-  height: 30px;
+  height: 50px;
   width: 2px;
   background: #979494;
   position: absolute;
   top: 10px;
-  left: 140px;
+  left: 230px;
 }
 
 .man .head {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   background: #979494;
   border-radius: 50%;
   position: absolute;
-  top: 40px;
-  left: 125px;
+  top: 60px;
+  left: 207px;
 }
 
 .man .body {
-  height: 46px;
+  height: 110px;
   width: 4px;
   background: #979494;
   position: absolute;
-  top: 70px;
-  left: 139px;
+  top: 110px;
+  left: 230px;
 }
 
 .man .arm.left,
 .man .arm.right {
   height: 4px;
-  width: 30px;
+  width: 100px;
   background: #979494;
   position: absolute;
-  top: 80px;
+  top: 130px;
 }
 
 .man .arm.left {
-  left: 110px;
+  left: 135px;
   transform: rotate(20deg);
 }
 
 .man .arm.right {
-  left: 140px;
+  left: 230px;
   transform: rotate(-20deg);
 }
 
 .man .leg.left,
 .man .leg.right {
   height: 4px;
-  width: 30px;
+  width: 100px;
   background: #979494;
   position: absolute;
-  top: 120px;
+  top: 243px;
 }
 
 .man .leg.left {
-  left: 112px;
+  left: 139px;
   transform: rotate(-30deg);
 }
 
 .man .leg.right {
-  left: 140px;
+  left: 225px;
   transform: rotate(30deg);
 }
